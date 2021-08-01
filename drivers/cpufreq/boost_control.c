@@ -16,11 +16,17 @@
 bool enable_fb_boost=true;
 module_param_named(enable_fb_boost, enable_fb_boost, bool, 0644);
 
+u32 input_boost_freq_lp=CONFIG_INPUT_BOOST_FREQ_LP;
+module_param_named(input_boost_freq_lp, input_boost_freq_lp, int, 0644);
+
 u32 input_boost_freq_perf=CONFIG_INPUT_BOOST_FREQ_PERF;
 module_param_named(input_boost_freq_perf, input_boost_freq_perf, int, 0644);
 
-u32 input_boost_freq_lp=CONFIG_INPUT_BOOST_FREQ_LP;
-module_param_named(input_boost_freq_lp, input_boost_freq_lp, int, 0644);
+u32 max_boost_freq_lp=CONFIG_MAX_BOOST_FREQ_LP;
+module_param_named(max_boost_freq_lp, max_boost_freq_lp, int, 0644);
+
+u32 max_boost_freq_perf=CONFIG_MAX_BOOST_FREQ_PERF;
+module_param_named(max_boost_freq_perf, max_boost_freq_perf, int, 0644);
 
 u32 wake_boost_duration=CONFIG_WAKE_BOOST_DURATION_MS;
 module_param_named(cpu_wake_boost_duration, wake_boost_duration, int, 0644);
