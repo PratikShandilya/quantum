@@ -45,6 +45,7 @@ static struct boost_drv boost_drv_g __read_mostly = {
 static unsigned int get_input_boost_freq(struct cpufreq_policy *policy)
 {
 	unsigned int freq;
+
 	#if CONFIG_BOOST_CONTROL
 	if (cpumask_test_cpu(policy->cpu, cpu_lp_mask))
 		freq = input_boost_freq_lp;
@@ -64,10 +65,17 @@ static unsigned int get_max_boost_freq(struct cpufreq_policy *policy)
 {
 	unsigned int freq;
 
+        #if CONFIG_BOOST_CONTROL
+        if (cpumask_test_cpu(policy->cpu, cpu_lp_mask))
+                freq = max_boost_freq_lp;
+        else
+                freq = max_boost_freq_perf;
+        #else
 	if (cpumask_test_cpu(policy->cpu, cpu_lp_mask))
 		freq = CONFIG_MAX_BOOST_FREQ_LP;
 	else
 		freq = CONFIG_MAX_BOOST_FREQ_PERF;
+        #endif
 
 	return min(freq, policy->max);
 }
