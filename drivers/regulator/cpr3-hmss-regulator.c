@@ -373,11 +373,11 @@ static const int msm8996_v1_v2_hmss_fuse_ref_volt[MSM8996_HMSS_FUSE_CORNERS] = {
 
 /* Open loop voltage fuse reference voltages in microvolts for MSM8996 v3 */
 static const int msm8996_v3_hmss_fuse_ref_volt[MSM8996_HMSS_FUSE_CORNERS] = {
-	575000,
-	685000, /* Place holder entry for LowSVS */
-	685000,
-	845000,
-	1080000,
+	565000,
+	665000, /* Place holder entry for LowSVS */
+	665000,
+	825000,
+	1060000,
 };
 
 /*
